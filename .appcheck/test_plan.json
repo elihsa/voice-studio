@@ -1,0 +1,29 @@
+{
+  "app_dir": "/home/eli/voice_studio",
+  "manifest_hash": "sha256:88b80954d3a7d708",
+  "generated_at": "2026-11-19T19:19:17.821832",
+  "selected_tests": [
+    "syntax_gate",
+    "dependency_check",
+    "unit_tests",
+    "voicestudio_backend_smoke",
+    "voicestudio_cuda",
+    "gui_init"
+  ],
+  "skipped_tests": [
+    "web_button_action",
+    "api_route_method_check",
+    "form_e2e",
+    "auth_flow",
+    "db_connections",
+    "browser_vision"
+  ],
+  "skip_reasons": {
+    "web_button_action": "no web app",
+    "api_route_method_check": "no API routes in pipeline; VoiceStudio backend is a binary bundle",
+    "form_e2e": "no forms",
+    "auth_flow": "no auth feature",
+    "db_connections": "no database",
+    "browser_vision": "VoiceStudio is a desktop Electron app; GUI window renders on the user's Wayland display, not capturable from headless context"
+  }
+}

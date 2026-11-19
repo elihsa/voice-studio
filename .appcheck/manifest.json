@@ -1,0 +1,21 @@
+{
+  "type": "cli + desktop-gui(bundle)",
+  "language": [
+    "python"
+  ],
+  "entry_points": [
+    "whatsapp_preprocess.py"
+  ],
+  "tests_existing": [
+    "test_preprocess.py"
+  ],
+  "dependencies": [
+    "numpy",
+    "scipy",
+    "ffmpeg"
+  ],
+  "regression_tests": [
+    "test_pipeline.py",
+    "test_voicestudio_backend_smoke.py"
+  ]
+}

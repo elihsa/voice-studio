@@ -1,0 +1,20 @@
+# Extracted AppImage (273MB, regenerate via run_voicestudio.sh)
+vs_extract/
+
+# VoiceStudio runtime — 8.9GB of models, installed separately
+~/.config/VoiceStudio/runtime/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+
+# Outputs
+clean_wavs/
+*.wav
+!test_preprocess.py
+
+# OS
+.DS_Store
