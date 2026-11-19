@@ -1,13 +1,13 @@
 # Voice Studio — WhatsApp Voice Cloning Setup
 
 ## Location
-`/home/eli/voice_studio/`
+`./voice_studio/` (portable — works on any machine)
 
 ## Components
 
 ### 1. VoiceStudio App (v0.5.8)
-- **AppImage**: `/home/eli/.local/bin/VoiceStudio` (already installed)
-- **Extracted**: `/home/eli/vs_extract/squashfs-root/`
+- **AppImage**: `~/.local/bin/VoiceStudio` (install from https://github.com/mvtctn/voicestudio)
+- **Extracted**: `~/vs_extract/squashfs-root/` (run `./VoiceStudio.AppImage --appimage-extract`)
 - **Launcher**: `./run_voicestudio.sh`
 
 VoiceStudio is a desktop Electron app with 16 TTS engines including **GPT-SoVITS** — the best engine for WhatsApp audio (tolerant of compressed/noisy source).
@@ -26,7 +26,7 @@ Batch processes WhatsApp voice notes (OGG/OPUS) into clean WAV files optimized f
 
 **Usage:**
 ```bash
-cd /home/eli/voice_studio
+cd voice_studio
 python whatsapp_preprocess.py /path/to/whatsapp/audio ./clean_output
 ```
 
@@ -46,12 +46,12 @@ python whatsapp_preprocess.py ~/path/to/whatsapp/notes ./clean_wavs
 ```
 
 ## Requirements
-- FFmpeg (installed: `/usr/bin/ffmpeg`)
-- Python 3 with scipy, numpy (installed in system Python)
-- GTX 1060 6GB (CUDA available for GPT-SoVITS)
+- FFmpeg (`sudo apt install ffmpeg`)
+- Python 3 with scipy, numpy (`pip install scipy numpy`)
+- NVIDIA GPU with CUDA (GTX 1060 6GB or better recommended)
 
 ## Notes
-- VoiceStudio is a **desktop app**, not a web server — it runs on your display (`:1`)
+- VoiceStudio is a **desktop app**, not a web server — it runs on your display
 - The AppImage requires FUSE, so we run from the extracted directory
 - GPT-SoVITS is the recommended engine for WhatsApp audio (best tolerance for compressed source)
 - For accent preservation: use 5-10 notes from the same speaker, same style, same mic
@@ -60,8 +60,8 @@ python whatsapp_preprocess.py ~/path/to/whatsapp/notes ./clean_wavs
 
 ### "SUID sandbox" error
 ```bash
-sudo chown root:root /home/eli/vs_extract/squashfs-root/chrome-sandbox
-sudo chmod 4755 /home/eli/vs_extract/squashfs-root/chrome-sandbox
+sudo chown root:root ~/vs_extract/squashfs-root/chrome-sandbox
+sudo chmod 4755 ~/vs_extract/squashfs-root/chrome-sandbox
 ```
 
 ### No audio in output

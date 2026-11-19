@@ -13,7 +13,7 @@ REGENERATE_ON_CHANGE: VoiceStudio runtime project deps
 """
 import subprocess, sys, os
 
-VENV = "/home/eli/.config/VoiceStudio/runtime/project/.venv"
+VENV = os.path.expanduser("~/.config/VoiceStudio/runtime/project/.venv")
 PY = os.path.join(VENV, "bin", "python")
 
 # Core modules VoiceStudio's backend loads at runtime
@@ -22,7 +22,7 @@ MODULES = ["torch", "demucs", "faster_whisper", "sherpa_onnx",
 
 # Strip everything except HOME/PATH so the venv uses ONLY its own site-packages
 CLEAN_ENV = {
-    "HOME": "/home/eli",
+    "HOME": os.path.expanduser("~"),
     "PATH": "/usr/bin:/bin",
     "LD_LIBRARY_PATH": os.path.join(VENV, "lib", "python3.11", "site-packages",
                                     "torch", "lib"),
